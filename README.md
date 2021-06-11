@@ -1,12 +1,12 @@
 # A simple Bayesian Model to predict EURO 2020 Results
 
-This is a very simple Bayesian Model that predicts Results of EURO 2020 games that I wrote as a fun project in a day. You can find the technical writeup about this project on [https://kylechanhy.netlify.app/post/euro2021](my website)
+This is a very simple Bayesian Model that predicts Results of EURO 2020 games that I wrote as a fun project in a day. You can find the technical writeup about this project on [my website](https://kylechanhy.netlify.app/post/euro2021)
 
 ## Description of files
 
 ## Datasets
 
-`base_data.xlsx` - Basic tally and outcome matrices for the EURO 2020 Qualifiers. Data acquired from (this Wikipedia page)[https://en.wikipedia.org/wiki/UEFA_Euro_2020_qualifying]
+`base_data.xlsx` - Basic tally and outcome matrices for the EURO 2020 Qualifiers. Data acquired from [this Wikipedia page](https://en.wikipedia.org/wiki/UEFA_Euro_2020_qualifying)
 
 `qualifiers.csv` - Dyadic data of different teams during the qualifiers. Constructed by flattening the outcome matrices in `base_data.xlsx`.
 
