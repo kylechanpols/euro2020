@@ -50,7 +50,7 @@ predict_match <- function(mod_path,data,newdata,iter){
   return(temp_mod)
 }
 
-acquire_ecdf_tabs <- function(mod, para="y_ij_hat",i,gd=3,plot=TRUE,teamA="Team A", teamB="Team B"){
+acquire_ecdf_tabs <- function(mod, para="y_ij_hat",i,gd=3,plot=TRUE,teamA="Away Team", teamB="Home Team"){
   #A cleaned up func to acquire the empirical CDF function, then use that to generate predicted probabilities.
   
   #mod - a predictive model fitted with predict_match()
@@ -58,8 +58,8 @@ acquire_ecdf_tabs <- function(mod, para="y_ij_hat",i,gd=3,plot=TRUE,teamA="Team 
   # i - which match should the func calculate predicted probabilities for?
   # gd - The maximum goal difference you wish the program to calculate (be default 3).
   # plot - By Default TRUE. Should the funx plot the posterior distribution of the predicted goal difference?
-  # teamA - Team A label.
-  # teamB - Team B label.
+  # teamA - Team A label. - Usually the Away Team
+  # teamB - Team B label. - Usually the Home Team
   
   Z <- extract(mod, pars=paste0(para,"[",i,"]"))[[1]][(mod@sim$iter +1): (mod@sim$iter *2)] # do not include burn-in period!
   cdf = ecdf(Z)
@@ -85,9 +85,9 @@ acquire_ecdf_tabs <- function(mod, para="y_ij_hat",i,gd=3,plot=TRUE,teamA="Team 
     Z = as.data.frame(Z)
   #names = rownames(flobusiness)
   
-    plt<- mcmc_areas(Z)
+    plt <- mcmc_areas(Z)
   
-    plt+xlab(paste0("<----",teamA," Wins More Likely |",teamB," Wins More Likely ---->"))+ylab("Density")
+    plt <- plt+xlab(paste0("<----",teamA," Wins More Likely |",teamB," Wins More Likely ---->"))+ylab("Density")
     print(plt)
   }
   
